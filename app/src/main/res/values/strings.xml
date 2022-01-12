@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Country Information</string>
+    <string name="delete_all">Delete All</string>
+    <string name="todo">TODO</string>
+</resources>
