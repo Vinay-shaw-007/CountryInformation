@@ -37,8 +37,9 @@ public class MainActivity extends AppCompatActivity implements CountryAdapter.On
     private void setViewModel() {
         viewModel = new ViewModelProvider(this).get(CountryViewModel.class);
         viewModel.getAllCountryInfo().observe(this, countryEntities -> {
-            if (countryEntities != null)
+            if (countryEntities != null){
                 mAdapter.setCountryInfo(countryEntities);
+            }
         });
         viewModel.fetchJSONData();
     }
