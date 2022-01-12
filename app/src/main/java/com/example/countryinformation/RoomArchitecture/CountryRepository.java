@@ -30,9 +30,11 @@ public class CountryRepository {
     LiveData<List<CountryEntity>> getAllCountryInfo(){
         return countryEntityLiveData;
     }
+    //Insert in database method.
     void insert(CountryEntity entity){
         CountryDatabase.databaseWriteExecutor.execute(() -> countryDao.insert(entity));
     }
+    //Delete all data from database method.
     void deleteAll(){
         CountryDatabase.databaseWriteExecutor.execute(countryDao::deleteAll);
     }
@@ -40,6 +42,7 @@ public class CountryRepository {
         CountryDatabase.databaseWriteExecutor.execute(this::fetchInformation);
     }
 
+    //Fetching data from JSON Api
     void fetchInformation(){
         String url = "https://restcountries.com/v3.1/region/asia";
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, response -> {

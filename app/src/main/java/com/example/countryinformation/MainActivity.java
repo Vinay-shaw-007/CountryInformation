@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements CountryAdapter.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRecyclerView();
-        setViewModel();
+        setRecyclerView();//Initializing recycler view and setting it's adapter.
+        setViewModel();//Initializing ViewModel and live data.
     }
 
     private void setViewModel() {
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements CountryAdapter.On
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    //Handling expandable view and drop down arrow
     @Override
     public void OnItemClicked(LinearLayout linearLayout, RelativeLayout relativeLayout, ImageView drop_down_arrow) {
         int v = (relativeLayout.getVisibility() == View.GONE) ?  View.VISIBLE : View.GONE;
@@ -70,12 +71,14 @@ public class MainActivity extends AppCompatActivity implements CountryAdapter.On
         }
     }
 
+    //Initializing top menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.topmenu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    //Handling click functions of top menu delete button
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.deleteAll) {

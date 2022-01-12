@@ -18,12 +18,15 @@ public class CountryViewModel extends AndroidViewModel {
         repository = new CountryRepository(application);
         allInfo = repository.getAllCountryInfo();
     }
+    //Observing all live room database data method.
     public LiveData<List<CountryEntity>> getAllCountryInfo(){
         return allInfo;
     }
+    //Fetch Json data method
     public void fetchJSONData(){
         repository.fetchJSONData();
     }
+    //Delete all data from database method.
     public void deleteAll(){
         repository.deleteAll();
     }
